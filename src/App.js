@@ -32,6 +32,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <div className="title">Header</div>
         {/* {listData.length === 0 && <div className="text-center">购物车是空的</div>} */}
         {this.renderList()}
       </div>

@@ -1,5 +1,9 @@
 // 类组件快捷：imrc
 import React, { Component } from 'react';
+import style from './listItem.module.css';
+import classnames from 'classnames/bind';
+import cn from 'classnames';
+const cls = classnames.bind(style);
 
 // 商品属性
 // const product = {
@@ -20,11 +24,18 @@ class ListItem extends Component {
     return count + '个'
   }
   render() {
-    // class 是js的关键字，所以要用className
+    const _cn = cn({
+      'themed-grid-col-s': !count
+    })
     return (
+      // class 是js的关键字，所以要用className
       <div className="row list-box">
-        <div className="col-8 themed-grid-col">{this.props.data.name}</div>
-        <div className="col-2 themed-grid-col">￥{this.props.data.price}</div>
+        <div className="col-8 themed-grid-col">
+          <span className={cls('title', 'list-title')}>
+            {this.props.data.name}
+          </span>
+        </div>
+        <div className={`col-2 themed-grid-col ` + _cn}>￥{this.props.data.price}</div>
         <div className={`col-2 themed-grid-col${count ? '' : '-s'}`}>{this.manageCount()}</div>
       </div>
     );
