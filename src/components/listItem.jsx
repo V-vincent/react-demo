@@ -25,7 +25,7 @@ class ListItem extends Component {
       <div className="row list-box">
         <div className="col-8 themed-grid-col">{this.props.data.name}</div>
         <div className="col-2 themed-grid-col">￥{this.props.data.price}</div>
-        <div className="col-2 themed-grid-col">{this.manageCount()}</div>
+        <div className={`col-2 themed-grid-col${count ? '' : '-s'}`}>{this.manageCount()}</div>
       </div>
     );
   }
