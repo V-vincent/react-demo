@@ -21,12 +21,15 @@ const listData = [{
 }]
 
 class App extends Component {
+  handleDelete = (id) => {
+    console.log("id: ", id);
+  };
   renderList() {
     if (listData.length === 0) {
       return <div className="text-center">购物车是空的</div>
     }
     return listData.map((item) => {
-      return <ListItem key={item.id} data={item} />
+      return <ListItem key={item.id} data={item} onDelete={this.handleDelete} />
     })
   }
   render() {
