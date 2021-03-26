@@ -21,6 +21,7 @@ code {
   padding-bottom: 15px;
   background-color: rgba(255, 255, 255);
   border: 1px solid rgba(86, 61, 124, .2);
+  text-align: center;
 }
 
 .themed-grid-col-s {
