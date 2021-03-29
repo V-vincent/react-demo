@@ -17,6 +17,7 @@ import React from 'react';
 
 // 无状态组件，没有render方法，直接return返回
 const NavBar = ({ itemNum, onReset }) => {
+  console.log('nav is render');
   return (<nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="wrap">
       <span className="title">NavBar</span>

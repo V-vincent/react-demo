@@ -25,6 +25,7 @@ class App extends PureComponent {
         value: 2,
       }]
     }
+    console.log('APP is constructor')
   }
   handleDecrease = (id) => {
     let listData = this.state.listData.map(item => {
@@ -74,7 +75,14 @@ class App extends PureComponent {
       listData
     })
   }
+  // componentWillMount = () => {
+  //   console.log('APP is componentWillMount');
+  // }
+  componentDidMount = () => {
+    console.log('APP is componentDidMount');
+  }
   render() {
+    console.log('APP is render');
     return (
       <>
         <NavBar

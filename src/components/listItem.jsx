@@ -24,8 +24,16 @@ class ListItem extends PureComponent {
     this.state = {
       count: this.props.data.value,
     }
-
+    console.log('item is constructor');
     // 在这里使用setState会报错
+  }
+  componentDidUpdate(nextProps) {
+    if (nextProps.data.value !== this.props.data.value) {
+      console.log('item is updated')
+    }
+  }
+  componentWillUnmount() {
+    console.log('Item is Delete')
   }
   // countToZero() {
   //   count = count < 0 ? 0 : count;
@@ -60,7 +68,8 @@ class ListItem extends PureComponent {
   //   return true;
   // }
   render() {
-    console.log('item is rendering')
+    console.log('item is render');
+    // console.log('item is rendering')
     // const _cn = cn({
     //   'themed-grid-col-s': !count
     // })

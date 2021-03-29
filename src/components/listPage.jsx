@@ -21,6 +21,7 @@ class ListPage extends PureComponent {
   }
 
   render() { 
+    console.log('page is render');
     return ( 
       <>
         {this.renderList()}
