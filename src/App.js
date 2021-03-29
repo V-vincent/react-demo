@@ -1,59 +1,95 @@
-import React, { Component } from 'react';
-import ListItem from './components/listItem';
+import React, { PureComponent } from 'react';
+// import ListItem from './components/listItem';
+import NavBar from './components/navbar'
+import ListPage from "./components/listPage";
 // import ListItem from './components/listItemFunc';
 
-// 数据
-const listData = [{
-  id: 1,
-  name: "华为太空手表",
-  price: 1200,
-  stock: 20,
-}, {
-  id: 2,
-  name: "华为P50",
-  price: 5500,
-  stock: 20,
-}, {
-  id: 3,
-  name: "iphone",
-  price: 5500,
-  stock: 30,
-}]
-
-class App extends Component {
-  handleDelete = (id) => {
-    console.log("id: ", id);
-  };
-  renderList() {
-    if (listData.length === 0) {
-      return <div className="text-center">购物车是空的</div>
+class App extends PureComponent {
+  constructor() {
+    super();
+    this.state = {
+      listData: [{
+        id: 1,
+        name: "华为太空手表",
+        price: 1200,
+        value: 1,
+      }, {
+        id: 2,
+        name: "华为P50",
+        price: 5500,
+        value: 3,
+      }, {
+        id: 3,
+        name: "iphone",
+        price: 5500,
+        value: 2,
+      }]
     }
-    return listData.map((item) => {
-      return <ListItem key={item.id} data={item} onDelete={this.handleDelete} />
+  }
+  handleDecrease = (id) => {
+    let listData = this.state.listData.map(item => {
+      if (item.id === id) {
+        let _item = { ...item };
+        _item.value--;
+        if (_item.value < 0) _item.value = 0;
+        return _item;
+      } else {
+        return item;
+      }
+    })
+    this.setState({
+      listData
+    });
+  }
+  // 添加数量
+  handleIncrease = (id) => {
+    let listData = this.state.listData.map(item => {
+      if (item.id === id) {
+        let _item = { ...item };
+        _item.value++;
+        return _item;
+      } else {
+        return item;
+      }
+    })
+    this.setState({
+      listData
+    });
+  }
+  handleDelete = (id) => {
+    let listData = this.state.listData.filter(item => {
+      return item.id !== id;
+    })
+    this.setState({
+      listData
+    });
+  };
+  handleReset = () => {
+    let listData = this.state.listData.map(item => {
+      let _item = { ...item };
+      _item.value = 0;
+      return _item;
+    })
+    this.setState({
+      listData
     })
   }
   render() {
     return (
-      <div className="container">
-        <div className="title">Header</div>
-        {/* {listData.length === 0 && <div className="text-center">购物车是空的</div>} */}
-        {this.renderList()}
-      </div>
-      // Fragments的使用
-      // <>
-      //   <div className="container">
-      //     <ListItem />
-      //     <ListItem />
-      //     <ListItem />
-      //   </div>
-      //   <div className="container">
-      //     <ListItem />
-      //     <ListItem />
-      //     <ListItem />
-      //   </div>
-      // </>
-      // React.createElement()方法第一个参数是一个字符串，所以不能由并列的层级
-      // <div></div>
+      <>
+        <NavBar
+          onReset={this.handleReset}
+          itemNum={this.state.listData.length}
+        />
+        <div className="container">
+          <ListPage
+            listData={this.state.listData}
+            onMinus={this.handleDecrease}
+            onPlus={this.handleIncrease}
+            onDelete={this.handleDelete}
+          />
+        </div>
+      </>
     );
   }
 }
