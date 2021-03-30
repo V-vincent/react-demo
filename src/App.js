@@ -3,6 +3,9 @@ import React, { PureComponent } from 'react';
 import NavBar from './components/navbar'
 import ListPage from "./components/listPage";
 // import ListItem from './components/listItemFunc';
+import ItemA from './components/hoc/itemA'
+import ItemB from './components/hoc/itemB'
+import ItemC from './components/rp/ItemC'
 
 class App extends PureComponent {
   constructor() {
@@ -97,6 +100,9 @@ class App extends PureComponent {
             onDelete={this.handleDelete}
           />
         </div>
+        <ItemA id="1" />
+        <ItemB />
+        <ItemC />
       </>
     );
   }
