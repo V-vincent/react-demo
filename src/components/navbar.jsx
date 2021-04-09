@@ -22,11 +22,8 @@ const NavBar = () => {
   return (<nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="wrap container">
       <span className="title">NavBar</span>
-      <ul className="nav-ul">
+      <ul className="nav-ul row-ul">
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/item-a">ItemA</Link></li>
-        <li><Link to="/item-b">ItemB</Link></li>
-        <li><Link to="/item-c">ItemC</Link></li>
         <li><Link to="/list-page">ListPage</Link></li>
       </ul>
     </div>

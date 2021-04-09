@@ -36,11 +36,14 @@ li {
   text-align: center;
 }
 
-.nav-ul {
+.row-ul {
+  width: 90%;
   overflow: hidden;
+}
+
+.nav-ul {
   line-height: 40px;
   margin: 0;
-  width: 90%;
 }
 
 .nav-ul li {
@@ -50,4 +53,13 @@ li {
 
 .reset-btn {
   margin-left: 20px;
+}
+
+.item-ul {
+  margin-left: -40px;
+}
+
+.item-ul li {
+  float: left;
+  width: 25%;
 }
