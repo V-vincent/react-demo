@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 // class NavBar extends PureComponent {
 //   render() { 
@@ -16,15 +17,20 @@ import React from 'react';
 // export default NavBar;
 
 // 无状态组件，没有render方法，直接return返回
-const NavBar = ({ itemNum, onReset }) => {
+const NavBar = () => {
   console.log('nav is render');
   return (<nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <div className="wrap">
+    <div className="wrap container">
       <span className="title">NavBar</span>
-      <span className="badge badge-pill badge-primary ml-2 mr-2">{itemNum}</span>
-      <button onClick={onReset} className="btn btn-outline-success my-2 my-sm-0 fr" type="button">重置</button>
+      <ul className="nav-ul">
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/item-a">ItemA</Link></li>
+        <li><Link to="/item-b">ItemB</Link></li>
+        <li><Link to="/item-c">ItemC</Link></li>
+        <li><Link to="/list-page">ListPage</Link></li>
+      </ul>
     </div>
-  </nav>);
+  </nav >);
 }
 
 export default NavBar;

@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+li {
+  list-style: none;
+}
+
 .list-box {
   margin: 1rem 0;
 }
@@ -30,4 +34,20 @@ code {
   background-color: rgba(86, 61, 124, .15);
   border: 1px solid rgba(86, 61, 124, .2);
   text-align: center;
+}
+
+.nav-ul {
+  overflow: hidden;
+  line-height: 40px;
+  margin: 0;
+  width: 90%;
+}
+
+.nav-ul li {
+  float: left;
+  width: 90px;
+}
+
+.reset-btn {
+  margin-left: 20px;
 }
