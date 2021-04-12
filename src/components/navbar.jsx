@@ -25,6 +25,8 @@ const NavBar = () => {
       <ul className="nav-ul row-ul">
         <li><Link to="/">Home</Link></li>
         <li><Link to="/list-page">ListPage</Link></li>
+        <li><Link to="/products">Product</Link></li>
+        <li><Link to="/query">Query</Link></li>
       </ul>
     </div>
   </nav >);

@@ -1,7 +1,7 @@
 import React from "react";
-import ItemA from './hoc/itemA'
-import ItemB from './hoc/itemB'
-import ItemC from './rp/ItemC'
+import ItemA from './hoc/itemA';
+import ItemB from './hoc/itemB';
+import ItemC from './rp/ItemC';
 
 const Home = () => {
   return (
@@ -12,7 +12,8 @@ const Home = () => {
         <li><ItemB /></li>
         <li><ItemC /></li>
       </ul>
-    </>);
+    </>
+  );
 };
 
 export default Home;
